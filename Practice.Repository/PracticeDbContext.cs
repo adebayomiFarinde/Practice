@@ -7,9 +7,17 @@ using Practice.Core.Models;
 
 namespace Practice.Repository
 {
-    public class PracticeDbContext: DbContext
+    public class PracticeDbContext : DbContext
     {
-        public DbSet<Employee> Employees;
+        public PracticeDbContext(DbContextOptions<PracticeDbContext> options) : base(options)
+        {
+
+        }
+        public DbSet<Employee> Employees { get; set; }
     }
 
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+
+    }
 }

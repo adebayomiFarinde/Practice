@@ -5,10 +5,7 @@ using System.Threading.Tasks;
 
 namespace Practice.Service
 {
-    public class Class1
+    public class EmployeeService
     {
-        public Class1()
-        {
-        }
     }
 }
