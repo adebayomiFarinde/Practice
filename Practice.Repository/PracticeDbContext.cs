@@ -10,6 +10,8 @@ namespace Practice.Repository
     public class PracticeDbContext: DbContext
     {
         public DbSet<Employee> Employees;
+        public DbSet<Team> Teams;
+        public DbSet<Project> Projects;
     }
 
 }
