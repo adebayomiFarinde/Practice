@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Practice.Core.Enums
+﻿namespace Practice.Core.Enums
 {
     public enum Role
     {
-        Lead=0,
-        Member=1
+        None = 0,
+        Intern = 1,
+        Tester = 2,
+        Programmer = 3,
+        BAnalyst = 4,
+        Designer = 5
+
     }
 }

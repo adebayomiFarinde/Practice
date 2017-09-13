@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Practice.Core.Enums
+﻿namespace Practice.Core.Enums
 {
     public enum Sex
     {
-        Male = 0,
-        Female = 1
+        None = 0,
+        Male = 1,
+        Female = 2
     }
 }

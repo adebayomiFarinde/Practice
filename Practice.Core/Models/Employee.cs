@@ -1,8 +1,5 @@
 ﻿using Practice.Core.Enums;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Practice.Core.Models
 {
@@ -18,10 +15,7 @@ namespace Practice.Core.Models
         public MaritalStatus MaritalStatus { get; set; }
         public int NumberOfChildren { get; set; }
         public bool IsActive { get; set; }
-        public Position Position { get; set; }
         public DateTime LastDateOfPromotion { get; set; }
-        public int Salary { get; set; }
-        public string MaximumEducationalQualification { get; set; }
-        public int TimeOfService { get; set; }
+        public EducationalQualification MaximumEducationalQualification { get; set; }
     }
 }

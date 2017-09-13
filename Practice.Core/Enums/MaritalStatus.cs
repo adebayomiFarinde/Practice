@@ -2,8 +2,9 @@
 {
     public enum MaritalStatus
     {
-        Single = 0,
-        Married = 1,
-        Divorced = 2 
+        None = 0,
+        Single = 1,
+        Married = 2,
+        Divorced = 3 
     }
 }
