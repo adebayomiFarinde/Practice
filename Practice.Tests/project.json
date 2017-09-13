@@ -1,0 +1,40 @@
+﻿{
+  "version": "1.0.0-*",
+
+  "buildOptions": {
+    "debugType": "portable"
+  },
+
+  "Library": { "target": "project" },
+
+  "dependencies": {
+    "System.Runtime.Serialization.Primitives": "4.3.0",
+    "Microsoft.DotNet.InternalAbstractions": "1.0.500-preview2-1-003177",
+    "dotnet-test-mstest": "1.1.2-preview",
+    "Microsoft.AspNetCore.TestHost": "1.1.1",
+    "Microsoft.NETCore.App": "1.1.1",
+    "Moq": "4.7.8",
+    "MSTest.TestAdapter": "1.1.17",
+    "MSTest.TestFramework": "1.1.13",
+    "Practice.Web": "1.0.0-*"
+  },
+
+  "testRunner": "mstest",
+
+  "frameworks": {
+    "netcoreapp1.1": {
+      "dependencies": {
+      },
+      "imports": [
+        "dotnet5.4",
+        "portable-net451+win8"
+      ]
+    }
+  },
+
+  "runtimes": {
+    "win10-x64": {},
+    "win81-x64": {},
+    "win8-x64": {}
+  }
+}

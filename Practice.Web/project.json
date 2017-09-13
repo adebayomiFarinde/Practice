@@ -1,4 +1,4 @@
-﻿{
+{
   "userSecretsId": "aspnet-Practice.Web-ff59fb50-5bdf-4c51-b203-85eb86cb92c4",
 
   "dependencies": {
@@ -43,7 +43,8 @@
     "Microsoft.VisualStudio.Web.CodeGenerators.Mvc": {
       "version": "1.0.0-preview2-final",
       "type": "build"
-    }
+    },
+    "Practice.Service": "1.0.0-*"
   },
 
   "tools": {
