@@ -1,0 +1,10 @@
+﻿CREATE TABLE [dbo].[Teams]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL , 
+	[ProjectId] UNIQUEIDENTIFIER NOT NULL, 
+	[EmployeeId] UNIQUEIDENTIFIER NOT NULL, 
+	[Role] INT NOT NULL, 
+	PRIMARY KEY ([Id]), 
+	CONSTRAINT [FK_Teams_Projects] FOREIGN KEY (ProjectId) REFERENCES Projects(Id),
+	CONSTRAINT [FK_Teams_Employees] FOREIGN KEY (EmployeeId) REFERENCES Employees(Id)
+)
