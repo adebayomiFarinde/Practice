@@ -11,6 +11,8 @@ using Microsoft.Extensions.Logging;
 using Practice.Web.Models;
 using Practice.Web.Models.AccountViewModels;
 using Practice.Web.Services;
+using Practice.Core.Interfaces;
+using Practice.Core.Models;
 
 namespace Practice.Web.Controllers
 {
@@ -22,19 +24,22 @@ namespace Practice.Web.Controllers
         private readonly IEmailSender _emailSender;
         private readonly ISmsSender _smsSender;
         private readonly ILogger _logger;
+        private readonly IEmployeeService _employeeService;
 
         public AccountController(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             IEmailSender emailSender,
             ISmsSender smsSender,
-            ILoggerFactory loggerFactory)
+            ILoggerFactory loggerFactory, 
+            IEmployeeService employeeService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
             _smsSender = smsSender;
             _logger = loggerFactory.CreateLogger<AccountController>();
+            _employeeService = employeeService;
         }
 
         //
@@ -115,6 +120,20 @@ namespace Practice.Web.Controllers
                     //var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: HttpContext.Request.Scheme);
                     //await _emailSender.SendEmailAsync(model.Email, "Confirm your account",
                     //    $"Please confirm your account by clicking this link: <a href='{callbackUrl}'>link</a>");
+                    var userModel = new Employee
+                    {
+                        Id = Guid.Parse(user.Id),
+                        DateOfEmployment = model.DateOfEmployment,
+                        FirstName = model.FirstName,
+                        LastName = model.LastName,
+                        MaritalStatus = model.MaritalStatus,
+                        Sex = model.Sex,
+                        NumberOfChildren = model.NumberOfChildren,
+                        DateOfBirth = model.DateOfBirth,
+                        IsActive = false
+
+                    };
+                    await _employeeService.SaveEmployee(userModel);
                     await _signInManager.SignInAsync(user, isPersistent: false);
                     _logger.LogInformation(3, "User created a new account with password.");
                     return RedirectToLocal(returnUrl);

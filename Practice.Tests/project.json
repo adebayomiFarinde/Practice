@@ -16,7 +16,9 @@
     "Moq": "4.7.8",
     "MSTest.TestAdapter": "1.1.17",
     "MSTest.TestFramework": "1.1.13",
-    "Practice.Web": "1.0.0-*"
+    "Practice.Web": "1.0.0-*",
+    "NETStandard.Library": "1.6.1",
+    "System.Runtime": "4.3.0"
   },
 
   "testRunner": "mstest",
