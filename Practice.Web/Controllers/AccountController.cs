@@ -130,7 +130,9 @@ namespace Practice.Web.Controllers
                         Sex = model.Sex,
                         NumberOfChildren = model.NumberOfChildren,
                         DateOfBirth = model.DateOfBirth,
-                        IsActive = false
+                        IsActive = false,
+                        LastDateOfPromotion = DateTime.Now
+                      
 
                     };
                     await _employeeService.SaveEmployee(userModel);

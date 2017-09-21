@@ -9,12 +9,12 @@ namespace Practice.Web.Models.AccountViewModels
 {
     public class RegisterViewModel
     {
-        [Required(ErrorMessage ="Email is required to be supplied")]
+        [Required(ErrorMessage = "Email is required to be supplied")]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
 
-        [Required(ErrorMessage ="Please, Enter the First Name")]
+        [Required(ErrorMessage = "Please, Enter the First Name")]
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
@@ -23,24 +23,24 @@ namespace Practice.Web.Models.AccountViewModels
         public string LastName { get; set; }
 
         [Required]
-        [DisplayFormat(DataFormatString ="{0:MM/dd/yyyy}")]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         [DataType(DataType.Date)]
         [Display(Name = "Date Of Birth")]
         public DateTime DateOfBirth { get; set; }
 
         [Required]
         [EnumDataType(typeof(MaritalStatus))]
-        [Display(Name ="Marital Status")]
+        [Display(Name = "Marital Status")]
         public MaritalStatus MaritalStatus { get; set; }
 
         [Required]
         [EnumDataType(typeof(Sex))]
         public Sex Sex { get; set; }
 
-        [Display(Name ="Number Of Children")]
+        [Display(Name = "Number Of Children")]
         public int NumberOfChildren { get; set; }
 
-        [DisplayFormat(DataFormatString ="{0:MM/dd/yyyy}")]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         [DataType(DataType.Date)]
         [Display(Name = "Date Of Employment")]
         public DateTime DateOfEmployment { get; set; }
@@ -55,5 +55,9 @@ namespace Practice.Web.Models.AccountViewModels
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [DisplayFormat(DataFormatString ="{0:MM/dd/yyyy}")]
+        [DataType(DataType.Date)]
+        public DateTime LastDateOfPromotion { get; set; }
     }
 }

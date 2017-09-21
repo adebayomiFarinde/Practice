@@ -20,7 +20,7 @@ namespace Practice.Core.Models
         public virtual MaritalStatus MaritalStatus { get; set; }
         public int NumberOfChildren { get; set; }
         public bool IsActive { get; set; }
-        public virtual DateTime LastDateOfPromotion { get; set; }
+        public DateTime LastDateOfPromotion { get; set; }
         public virtual EducationalQualification MaximumEducationalQualification { get; set; }
        // public List<Team> project { get; set; }
     }

@@ -9,7 +9,8 @@
 	[MaritalStatus] INT NOT NULL, 
 	[NumberOfChildren] INT NULL, 
 	[IsActive] BIT NOT NULL, 
-	[MaximumEducationalQualification] INT NULL 
+	[MaximumEducationalQualification] INT NULL, 
+    [LastDateOfPromotion] DATETIME NULL 
 	
 )
 

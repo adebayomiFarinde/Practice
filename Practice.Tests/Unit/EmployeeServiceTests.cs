@@ -20,6 +20,8 @@ namespace Practice.Tests.Unit
         {
             _employeeRepository = new Mock<IEmployeeRepository>();
             _employeeRepository.Setup(x => x.GetAll()).ReturnsAsync(employeeDb);
+            _employeeRepository.Setup(x => x.Get(It.IsAny<Guid>()))
+                .ReturnsAsync((Guid input) => employeeDb.FirstOrDefault(x => x.Id == input));
         }
 
         [TestInitialize]
@@ -39,7 +41,8 @@ namespace Practice.Tests.Unit
         [TestMethod]
         public async Task Can_Get_An_Employee()
         {
-            var id = Guid.NewGuid();
+            var id = ids.First();
+
             var employee = await _employeeService.Get(id);
 
             Assert.AreEqual(employee.FirstName, employeeDb.First().FirstName);
