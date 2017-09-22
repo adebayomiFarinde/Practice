@@ -123,20 +123,17 @@ namespace Practice.Web.Controllers
                     var userModel = new Employee
                     {
                         Id = Guid.Parse(user.Id),
-                        DateOfEmployment = model.DateOfEmployment,
                         FirstName = model.FirstName,
                         LastName = model.LastName,
                         MaritalStatus = model.MaritalStatus,
                         Sex = model.Sex,
                         NumberOfChildren = model.NumberOfChildren,
                         DateOfBirth = model.DateOfBirth,
-                        IsActive = false,
-                        LastDateOfPromotion = DateTime.Now
-                      
-
+                        IsActive = false
                     };
+
                     await _employeeService.SaveEmployee(userModel);
-                    await _signInManager.SignInAsync(user, isPersistent: false);
+                    //await _signInManager.SignInAsync(user, isPersistent: false);
                     _logger.LogInformation(3, "User created a new account with password.");
                     return RedirectToLocal(returnUrl);
                 }
