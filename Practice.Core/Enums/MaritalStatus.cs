@@ -1,8 +1,9 @@
-﻿namespace Practice.Core.Enums
+﻿using System.ComponentModel;
+
+namespace Practice.Core.Enums
 {
     public enum MaritalStatus
     {
-        None = 0,
         Single = 1,
         Married = 2,
         Divorced = 3 

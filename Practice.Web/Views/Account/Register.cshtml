@@ -1,42 +1,78 @@
-﻿@model RegisterViewModel
+@using Practice.Core.Enums
+@model RegisterViewModel
+
 @{
     ViewData["Title"] = "Register";
 }
 
-<h2>@ViewData["Title"].</h2>
+<h2>Register</h2>
+<hr />
+<form asp-action="Register">
+    <div class="container">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <label asp-for="FirstName" class="control-label"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger" />
+            </div>
+            <div class="col-md-6 form-group">
+                <label asp-for="LastName" class="control-label"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger" />
+            </div>
+            <div class="col-md-6 form-group">
+                <label asp-for="Sex" class="control-label"></label>
+                <select asp-for="Sex" asp-items="Html.GetEnumSelectList<Sex>()" class="form-control"></select>
+                <span asp-validation-for="Sex" class="text-danger" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger" />
+            </div>
+            <div class="col-md-6 form-group">
+                <label asp-for="ConfirmPassword" class="control-label"></label>
+                <input asp-for="ConfirmPassword" class="form-control" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <label asp-for="DateOfBirth" class="control-label"></label>
+                <input asp-for="DateOfBirth" class="form-control" />
+                <span asp-validation-for="DateOfBirth" class="text-danger" />
+            </div>
+            <div class="col-md-6 form-group">
+                <label asp-for="MaritalStatus" class="control-label"></label>
+                <select asp-for="MaritalStatus" asp-items="Html.GetEnumSelectList<MaritalStatus>()" class="form-control"></select>
+                <span asp-validation-for="MaritalStatus" class="text-danger" />
+            </div>
 
-<form asp-controller="Account" asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-horizontal">
-    <h4>Create a new account.</h4>
-    <hr />
-    <div asp-validation-summary="All" class="text-danger"></div>
-    <div class="form-group">
-        <label asp-for="Email" class="col-md-2 control-label"></label>
-        <div class="col-md-10">
-            <input asp-for="Email" class="form-control" />
-            <span asp-validation-for="Email" class="text-danger"></span>
         </div>
-    </div>
-    <div class="form-group">
-        <label asp-for="Password" class="col-md-2 control-label"></label>
-        <div class="col-md-10">
-            <input asp-for="Password" class="form-control" />
-            <span asp-validation-for="Password" class="text-danger"></span>
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <label asp-for="NumberOfChildren" class="control-label"></label>
+                <input asp-for="NumberOfChildren" class="form-control" />
+                <span asp-validation-for="NumberOfChildren" class="text-danger" />
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <label asp-for="ConfirmPassword" class="col-md-2 control-label"></label>
-        <div class="col-md-10">
-            <input asp-for="ConfirmPassword" class="form-control" />
-            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <button type="submit" class="btn btn-default">Register</button>
+        <div class="form-group">
+            <a asp-controller="Home" asp-action="Index" class="btn btn-default">Cancel</a>
+            <input type="submit" value="Register" class="btn btn-primary" />
         </div>
     </div>
 </form>
 
 @section Scripts {
-    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

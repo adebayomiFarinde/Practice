@@ -15,9 +15,9 @@ namespace Practice.Service
             _employeeRepository = employeeRepository;
         }
 
-        public Task<Employee> Get(Guid id)
+        public async Task<Employee> Get(Guid id)
         {
-            throw new NotImplementedException();
+            return await _employeeRepository.Get(id);
         }
 
         public async Task<IEnumerable<Employee>> GetAll()
@@ -25,9 +25,11 @@ namespace Practice.Service
             return await _employeeRepository.GetAll();
         }
 
-        public Task<Employee> SaveEmployee(Employee employee)
+        public async Task<Employee> SaveEmployee(Employee employee)
         {
-            throw new NotImplementedException();
+            await _employeeRepository.Create(employee);
+
+            return employee;
         }
     }
 }
